@@ -34,9 +34,10 @@ import Page1 from './Pages/Page1';
 import CreatePostScreen from './Pages/CreatePostScreen';
 import TabPages from './Pages/Tabs/TabPage';
 import TopTabPage from './Pages/Tabs/TopTabPage';
+import LoginPage from './Pages/LoginPage';
 
 
-const AuthContext = React.createContext();
+export const AuthContext = React.createContext();
 
 const Stack = createStackNavigator();
 
@@ -49,32 +50,6 @@ function SplashScreen() {
   );
 }
 
-function LoginPage() {
-
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const { signIn } = React.useContext(AuthContext);
-
-
-  return (
-    <View>
-      <TextInput
-        placeholder="userName"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        placeholder="password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      <Button title={'login'} style={{ backgroundColor: 'red' }}
-        onPress={() => signIn({ username, password })} ></Button>
-    </View>
-  );
-}
 
 
 function App() {

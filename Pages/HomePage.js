@@ -17,10 +17,11 @@ import {
     View,
 } from 'react-native';
 import { useEffect } from 'react/cjs/react.production.min';
-
+import { AuthContext } from '../App';
 
 function HomePage({ navigation, route }) {
 
+    const { signIn } = React.useContext(AuthContext);
 
     React.useEffect(() => {
         if (route.params?.post) {
@@ -35,6 +36,8 @@ function HomePage({ navigation, route }) {
     };
 
     const [count, setCount] = React.useState(0);
+
+    console.log("signIn {$signIn}");
 
     return (
         <SafeAreaView>
